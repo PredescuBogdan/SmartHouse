@@ -24,10 +24,6 @@
             android:icon="@drawable/ic_settings"
             android:title="@string/nav_settings" />
 
-        <!--<item-->
-            <!--android:id="@+id/nav_profile"-->
-            <!--android:icon="@mipmap/ic_profile"-->
-            <!--android:title="@string/nav_profile" />-->
     </group>
 
     <item android:title="Other">

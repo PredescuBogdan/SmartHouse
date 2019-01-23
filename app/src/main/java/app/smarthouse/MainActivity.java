@@ -218,14 +218,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
 //                // settings fragment
                 SettingsFragment settingsFragment = new SettingsFragment();
                 return settingsFragment;
-//
-//            case 5:
-//                ProfileFragment profileFragment = new ProfileFragment();
-//                return profileFragment;
-//            case 6:
-//
-//                AboutUsFragment aboutUsFragment = new AboutUsFragment();
-//                return aboutUsFragment;
+
             default:
                 return new HomeFragment();
         }
@@ -270,14 +263,6 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                         navItemIndex = 4;
                         CURRENT_TAG = TAG_SETTINGS;
                         break;
-//                    case R.id.nav_profile:
-//                        navItemIndex=5;
-//                        CURRENT_TAG = TAG_PROFILE;
-//                        break;
-//                    case R.id.nav_about_us:
-//                        navItemIndex=6;
-//                        CURRENT_TAG = TAG_ABOUT;
-//                        break;
                     default:
                         navItemIndex = 0;
                 }
