@@ -33,6 +33,7 @@ import java.util.Locale;
 
 import app.smarthouse.R;
 import app.smarthouse.util.IConstants;
+import app.smarthouse.util.Utils;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -206,7 +207,7 @@ public class LightPanelFragment extends Fragment {
         cardViewGarage= view.findViewById(R.id.card_view_garage);
         cardViewGarage.setClickable(true);
 
-        CardView cardViewEntrance= view.findViewById(R.id.card_view_entrance);
+        cardViewEntrance= view.findViewById(R.id.card_view_entrance);
         cardViewEntrance.setClickable(true);
 
 
@@ -238,155 +239,15 @@ public class LightPanelFragment extends Fragment {
 
         cardViewBedroom.setOnClickListener(cardViewBedroomClickListener);
 
-        cardViewBathroom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AndroidNetworking.post(IConstants.SERVER_URL + "/lightOnOff").addBodyParameter("room", "bathroom")
-                        .setPriority(Priority.MEDIUM)
-                        .build()
-                        .getAsJSONObject(new JSONObjectRequestListener() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    int state = Integer.valueOf(response.getString("state"));
-                                    if(state == 0) {
-                                        countLights++;
-                                        textViewBathroom.setText("ON");
-                                        thumbnail_bathroom.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_4));
-                                        if(countLights==0) {
-                                            updateView();
-                                        }else {
-                                            updateView();
-                                        }
-                                    }else {
-                                        countLights--;
-                                        textViewBathroom.setText("OFF");
-                                        thumbnail_bathroom.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
-                                        if(countLights==0) {
-                                            updateView();
-                                        }else {
-                                            updateView();
-                                        }
-                                    }
+        cardViewBathroom.setOnClickListener(cardViewBathroomClickListener);
 
-                                }catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onError(ANError anError) {
-//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
-
-        cardViewGarage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AndroidNetworking.post(IConstants.SERVER_URL + "/lightOnOff").addBodyParameter("room", "garage")
-                        .setPriority(Priority.MEDIUM)
-                        .build()
-                        .getAsJSONObject(new JSONObjectRequestListener() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    int state = Integer.valueOf(response.getString("state"));
-                                    if(state == 0) {
-                                        textViewGarage.setText("ON");
-                                        thumbnail_garage.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_4));
-                                        countLights++;
-                                        if(countLights==0) {
-                                            updateView();
-                                        }else {
-                                            updateView();
-                                        }
-                                    }else {
-                                        textViewGarage.setText("OFF");
-                                        thumbnail_garage.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
-                                        countLights--;
-                                        if(countLights==0) {
-                                            updateView();
-                                        }else {
-                                            updateView();
-                                        }
-                                    }
-
-                                }catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onError(ANError anError) {
-//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
+        cardViewGarage.setOnClickListener(cardViewGarageClickListener);
 
 
-        cardViewEntrance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AndroidNetworking.post(IConstants.SERVER_URL + "/lightOnOff").addBodyParameter("room", "entrance")
-                        .setPriority(Priority.MEDIUM)
-                        .build()
-                        .getAsJSONObject(new JSONObjectRequestListener() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    int state = Integer.valueOf(response.getString("state"));
-                                    if(state == 0) {
-                                        textViewEntrance.setText("ON");
-                                        countLights++;
-                                        thumbnail_entrance.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_4));
-                                        if(countLights==0) {
-                                            updateView();
-                                        }else {
-                                            updateView();
-                                        }
-                                    }else {
-                                        countLights--;
-                                        textViewEntrance.setText("OFF");
-                                        thumbnail_entrance.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
-                                        updateView();
+        cardViewEntrance.setOnClickListener(cardViewEntranceClickListener);
 
-                                    }
+        allComands = Utils.getArrayOfCommands();
 
-                                }catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onError(ANError anError) {
-//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
-
-        allComands = new ArrayList<>();
-        allComands.add("living room light on");
-        allComands.add("living room light off");
-        allComands.add("bedroom light on");
-        allComands.add("bedroom light off");
-        allComands.add("kitchen light on");
-        allComands.add("kitchen light off");
-        allComands.add("bathroom light on");
-        allComands.add("bathroom light off");
-        allComands.add("garage light on");
-        allComands.add("garage light off");
-        allComands.add("entrance light on");
-        allComands.add("entrance light off");
-        allComands.add("garage light on");
-        allComands.add("garage light off");
-        allComands.add("garage door open");
-        allComands.add("garage door close");
-        allComands.add("all lights on");
-        allComands.add("all lights off");
 
     }
 
@@ -600,7 +461,6 @@ public class LightPanelFragment extends Fragment {
 
                                     @Override
                                     public void onError(ANError anError) {
-//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                         getResults();
@@ -732,6 +592,135 @@ public class LightPanelFragment extends Fragment {
                                     }else {
                                         updateView();
                                     }
+                                }
+
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    };
+
+    private View.OnClickListener cardViewBathroomClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            AndroidNetworking.post(IConstants.SERVER_URL + "/lightOnOff").addBodyParameter("room", "bathroom")
+                    .setPriority(Priority.MEDIUM)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                int state = Integer.valueOf(response.getString("state"));
+                                if(state == 0) {
+                                    countLights++;
+                                    textViewBathroom.setText("ON");
+                                    thumbnail_bathroom.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_4));
+                                    if(countLights==0) {
+                                        updateView();
+                                    }else {
+                                        updateView();
+                                    }
+                                }else {
+                                    countLights--;
+                                    textViewBathroom.setText("OFF");
+                                    thumbnail_bathroom.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
+                                    if(countLights==0) {
+                                        updateView();
+                                    }else {
+                                        updateView();
+                                    }
+                                }
+
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    };
+
+    private View.OnClickListener cardViewGarageClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            AndroidNetworking.post(IConstants.SERVER_URL + "/lightOnOff").addBodyParameter("room", "garage")
+                    .setPriority(Priority.MEDIUM)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                int state = Integer.valueOf(response.getString("state"));
+                                if(state == 0) {
+                                    textViewGarage.setText("ON");
+                                    thumbnail_garage.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_4));
+                                    countLights++;
+                                    if(countLights==0) {
+                                        updateView();
+                                    }else {
+                                        updateView();
+                                    }
+                                }else {
+                                    textViewGarage.setText("OFF");
+                                    thumbnail_garage.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
+                                    countLights--;
+                                    if(countLights==0) {
+                                        updateView();
+                                    }else {
+                                        updateView();
+                                    }
+                                }
+
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    };
+
+    private View.OnClickListener cardViewEntranceClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            AndroidNetworking.post(IConstants.SERVER_URL + "/lightOnOff").addBodyParameter("room", "entrance")
+                    .setPriority(Priority.MEDIUM)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                int state = Integer.valueOf(response.getString("state"));
+                                if(state == 0) {
+                                    textViewEntrance.setText("ON");
+                                    countLights++;
+                                    thumbnail_entrance.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_4));
+                                    if(countLights==0) {
+                                        updateView();
+                                    }else {
+                                        updateView();
+                                    }
+                                }else {
+                                    countLights--;
+                                    textViewEntrance.setText("OFF");
+                                    thumbnail_entrance.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
+                                    updateView();
+
                                 }
 
                             }catch (Exception e) {

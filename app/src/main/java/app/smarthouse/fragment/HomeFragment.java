@@ -29,6 +29,7 @@ import java.util.Locale;
 
 import app.smarthouse.R;
 import app.smarthouse.util.IConstants;
+import app.smarthouse.util.Utils;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -96,26 +97,7 @@ public class HomeFragment extends Fragment {
 
         txtSpeechInput = view.findViewById(R.id.txtSpeechInput);
         btnSpeak = view.findViewById(R.id.btnSpeak);
-        allComands = new ArrayList<>();
-        allComands.add("living room light on");
-        allComands.add("living room light off");
-        allComands.add("bedroom light on");
-        allComands.add("bedroom light off");
-        allComands.add("kitchen light on");
-        allComands.add("kitchen light off");
-        allComands.add("bathroom light on");
-        allComands.add("bathroom light off");
-        allComands.add("garage light on");
-        allComands.add("garage light off");
-        allComands.add("entrance light on");
-        allComands.add("entrance light off");
-        allComands.add("garage light on");
-        allComands.add("garage light off");
-        allComands.add("garage door open");
-        allComands.add("garage door close");
-        allComands.add("all lights on");
-        allComands.add("all lights off");
-
+        allComands = Utils.getArrayOfCommands();
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
             @Override

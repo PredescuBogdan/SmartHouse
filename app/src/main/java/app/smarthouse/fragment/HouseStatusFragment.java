@@ -134,7 +134,6 @@ public class HouseStatusFragment extends Fragment{
     View.OnClickListener buttonShowClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.d("DEBUG", "MERGE");
             getResults();
         }
     };
