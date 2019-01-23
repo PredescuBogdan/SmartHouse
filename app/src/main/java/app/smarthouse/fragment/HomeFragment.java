@@ -191,7 +191,6 @@ public class HomeFragment extends Fragment {
 
                                     @Override
                                     public void onError(ANError anError) {
-//                        Toast.makeText(getApplication(), anError.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     }else {

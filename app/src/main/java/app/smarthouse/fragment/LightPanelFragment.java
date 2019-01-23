@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import app.smarthouse.R;
+import app.smarthouse.model.Room;
 import app.smarthouse.util.IConstants;
 import app.smarthouse.util.Utils;
 
@@ -85,14 +86,8 @@ public class LightPanelFragment extends Fragment {
 
     FloatingActionButton btnVoice;
 
-    String living;
-    String bedroom ;
-    String kitchen;
+    Room room;
 
-    //Row2
-    String bathroom ;
-    String garage ;
-    String entrance ;
     ArrayList<String> allComands;
 
     private Handler handler = new Handler();
@@ -192,25 +187,36 @@ public class LightPanelFragment extends Fragment {
 
 
         cardViewLiving = view.findViewById(R.id.card_view_living);
-
         cardViewLiving.setClickable(true);
+        cardViewLiving.setOnClickListener(cardViewLivingClickListener );
+
 
         cardViewKitchen = view.findViewById(R.id.card_view_kitchen);
         cardViewKitchen.setClickable(true);
+        cardViewKitchen.setOnClickListener(cardViewKitchenClickListener);
+
 
         cardViewBedroom= view.findViewById(R.id.card_view_bedroom);
         cardViewBedroom.setClickable(true);
+        cardViewBedroom.setOnClickListener(cardViewBedroomClickListener);
+
 
         cardViewBathroom= view.findViewById(R.id.card_view_bathroom);
         cardViewBathroom.setClickable(true);
+        cardViewBathroom.setOnClickListener(cardViewBathroomClickListener);
+
 
         cardViewGarage= view.findViewById(R.id.card_view_garage);
         cardViewGarage.setClickable(true);
+        cardViewGarage.setOnClickListener(cardViewGarageClickListener);
+
+
 
         cardViewEntrance= view.findViewById(R.id.card_view_entrance);
         cardViewEntrance.setClickable(true);
+        cardViewEntrance.setOnClickListener(cardViewEntranceClickListener);
 
-
+        //UPDATE VIEW
         getResults();
 
 
@@ -231,20 +237,6 @@ public class LightPanelFragment extends Fragment {
 
 
         handler.post(timedTask);
-
-        cardViewLiving.setOnClickListener(cardViewLivingClickListener );
-
-
-        cardViewKitchen.setOnClickListener(cardViewKitchenClickListener);
-
-        cardViewBedroom.setOnClickListener(cardViewBedroomClickListener);
-
-        cardViewBathroom.setOnClickListener(cardViewBathroomClickListener);
-
-        cardViewGarage.setOnClickListener(cardViewGarageClickListener);
-
-
-        cardViewEntrance.setOnClickListener(cardViewEntranceClickListener);
 
         allComands = Utils.getArrayOfCommands();
 
@@ -336,18 +328,13 @@ public class LightPanelFragment extends Fragment {
                     public void onResponse(JSONObject response) {
                         try {
                             countLights=0;
-                            //Row1
-                            living = response.getString("living" );
-                            bedroom = response.getString("bedroom");
-                            kitchen = response.getString("kitchen");
+                            //
 
-                            //Row2
-                            bathroom = response.getString("bathroom");
-                            garage = response.getString("garage");
-                            entrance = response.getString("entrance");
+                            room = new Room(response.getString("living"), response.getString("bedroom"), response.getString("kitchen"), response.getString("bathroom"), response.getString("garage"), response.getString("entrance"));
+
 
                             //Row1
-                            if(living.equals("0")) {
+                            if(room.getLiving().equals("0")) {
                                 textViewLiving.setText("OFF");
                                 thumbnail_living.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
                             }else {
@@ -357,7 +344,7 @@ public class LightPanelFragment extends Fragment {
 
                             }
 
-                            if(bedroom.equals("0")) {
+                            if(room.getBedroom().equals("0")) {
                                 textViewBedroom.setText("OFF");
                                 thumbnail_bedroom.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
                             }else {
@@ -368,7 +355,7 @@ public class LightPanelFragment extends Fragment {
                             }
 
 
-                            if(kitchen.equals("0")) {
+                            if(room.getKitchen().equals("0")) {
                                 textViewKitchen.setText("OFF");
                                 thumbnail_kitchen.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
                             }else {
@@ -380,7 +367,7 @@ public class LightPanelFragment extends Fragment {
 
 
                             //Row2
-                            if(bathroom.equals("0")) {
+                            if(room.getBathroom().equals("0")) {
                                 textViewBathroom.setText("OFF");
                                 thumbnail_bathroom.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
                             }else {
@@ -390,7 +377,7 @@ public class LightPanelFragment extends Fragment {
 
                             }
 
-                            if(garage.equals("0")) {
+                            if(room.getGarage().equals("0")) {
                                 textViewGarage.setText("OFF");
                                 thumbnail_garage.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
                             }else {
@@ -400,7 +387,7 @@ public class LightPanelFragment extends Fragment {
 
                             }
 
-                            if(entrance.equals("0")) {
+                            if(room.getEntrance().equals("0")) {
                                 textViewEntrance.setText("OFF");
                                 thumbnail_entrance.setBackground(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.gradient_7));
                             }else {

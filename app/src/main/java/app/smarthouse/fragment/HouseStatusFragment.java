@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +22,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import org.json.JSONObject;
 
 import app.smarthouse.R;
+import app.smarthouse.model.Sensor;
 import app.smarthouse.util.IConstants;
 
 
@@ -146,17 +146,13 @@ public class HouseStatusFragment extends Fragment{
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            String temperature = response.getString("temperature" );
-                            String humidity = response.getString("humidity");
-                            String gase = response.getString("gase");
-                            String presence = response.getString("presence");
-                            String lightIntensity = response.getString("lightIntensity");
+                            Sensor sensor = new Sensor(response.getString("temperature"), response.getString("humidity"), response.getString("gase"), response.getString("presence"), response.getString("lightIntensity"));
 
-                            textViewTemperature.setText(temperature + " \u2103" );
-                            textViewHumidity.setText(humidity + " %");
-                            textViewGas.setText(gase);
-                            textViewThief.setText(presence);
-                            textViewLight.setText("Light is " + lightIntensity);
+                            textViewTemperature.setText(sensor.getTemperature() + " \u2103" );
+                            textViewHumidity.setText(sensor.getHumidity() + " %");
+                            textViewGas.setText(sensor.getGase());
+                            textViewThief.setText(sensor.getPresence());
+                            textViewLight.setText("Light is " + sensor.getLightIntensity());
 
                         }catch (Exception e) {
                             e.printStackTrace();

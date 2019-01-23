@@ -23,9 +23,9 @@ import app.smarthouse.fragment.GarageFragment;
 import app.smarthouse.fragment.HomeFragment;
 import app.smarthouse.fragment.HouseStatusFragment;
 import app.smarthouse.fragment.LightPanelFragment;
-import app.smarthouse.util.CircleTransform;
+import app.smarthouse.fragment.SettingsFragment;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, HouseStatusFragment.OnFragmentInteractionListener, GarageFragment.OnFragmentInteractionListener, LightPanelFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, HouseStatusFragment.OnFragmentInteractionListener, GarageFragment.OnFragmentInteractionListener, LightPanelFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener {
 
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -214,10 +214,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             case 3:
                 LightPanelFragment lightPanelFragment = new LightPanelFragment();
                 return lightPanelFragment;
-//            case 4:
-//                // notifications fragment
-//                SettingsFragment settingsFragment = new SettingsFragment();
-//                return settingsFragment;
+            case 4:
+//                // settings fragment
+                SettingsFragment settingsFragment = new SettingsFragment();
+                return settingsFragment;
 //
 //            case 5:
 //                ProfileFragment profileFragment = new ProfileFragment();
@@ -266,10 +266,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                         navItemIndex=3;
                         CURRENT_TAG = TAG_LIGHTS;
                         break;
-//                    case R.id.nav_settings:
-//                        navItemIndex = 4;
-//                        CURRENT_TAG = TAG_SETTINGS;
-//                        break;
+                    case R.id.nav_settings:
+                        navItemIndex = 4;
+                        CURRENT_TAG = TAG_SETTINGS;
+                        break;
 //                    case R.id.nav_profile:
 //                        navItemIndex=5;
 //                        CURRENT_TAG = TAG_PROFILE;
