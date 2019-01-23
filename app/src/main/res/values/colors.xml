@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#ffffff</color>
+
+    <color name="purple_500">#9C27B0</color>
+    <color name="deep_purple_500">#673AB7</color>
+    <color name="indigo_500">#2196F3</color>
+    <color name="blue_500">#2979FF</color>
+    <color name="cyan_500">#00BCD4</color>
+    <color name="light_blue_500">#03A9F4</color>
+    <color name ="orange_500">#2196F3</color>
+    <color name ="deep_orange_500">#FF5722</color>
+    <color name = "green_500">#8BC34A</color>
+    <color name = "yellow_500">#558B2F</color>
+    <color name = "light_gray_500">#E0E0E0</color>
+    <color name = "deep_gray_500">#BDBDBD</color>
+
+
+    <!--LUATE-->
+    <color name="black_500">#212121</color>
+    <color name="light_black_500">#424242</color>
+    <color name="light_green_500">#66bb6a</color>
+
+    <color name="red_500">#880e4f</color>
+    <color name="light_red_500">#f06292</color>
+    <color name="light_yellow_500">#ffee58</color>
+
+    <!--Speech -->
+    <color name="bg_gradient_start">#31244e</color>
+    <color name="bg_gradient_end">#6b394c</color>
+
+</resources>

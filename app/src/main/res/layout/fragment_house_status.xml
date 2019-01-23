@@ -1,0 +1,363 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_7"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:layout_gravity="center"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="30dp">
+
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_header"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/gradient_7"
+                    android:scaleType="centerCrop" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="House Parameters"
+                    android:textSize="26sp"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="50dp"/>
+
+                <ImageView
+                    android:id="@+id/thumbnail_header_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_home"
+                    android:tint="@color/white">
+
+                </ImageView>
+
+
+            </android.support.v7.widget.CardView>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:padding="5dp"
+            >
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_light"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_4"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/iconLight"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_light"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewLightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Detection"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="top|center"/>
+
+                <TextView
+                    android:id="@+id/textViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-----"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_gravity="bottom|center"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_thief"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_thief"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_5"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/iconThief"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_thief"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewThiefTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Presence Detected"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="top|center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewThief"
+                    android:text="-----"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_gravity="bottom|center"
+                    />
+            </android.support.v7.widget.CardView>
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:padding="5dp"
+
+            >
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_temperature"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_temperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_6"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/textViewTemperatureTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Temperature"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="top|center"/>
+
+                <ImageView
+                    android:id="@+id/iconTemperature"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_temperature"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTemperature"
+                    android:text="-----"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_gravity="bottom|center"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_humidity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_humidity"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_2"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/textViewHumidityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Humidity"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="top|center"/>
+
+                <ImageView
+                    android:id="@+id/iconHumidity"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_humidity"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewHumidity"
+                    android:text="-----"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_gravity="bottom|center"
+                    />
+            </android.support.v7.widget.CardView>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:padding="5dp"
+
+            >
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_gas"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_gas"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_1"
+                    android:scaleType="centerCrop" />
+
+
+
+                <ImageView
+                    android:id="@+id/iconGas"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_gas"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textViewGasTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gas Detected"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="top|center">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textViewGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-----"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:layout_gravity="bottom|center"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_refresh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_7"
+                    android:scaleType="centerCrop"
+                    />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/btnRefresh"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_sync"
+                    android:tint="@color/white"
+
+
+                    />
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</ScrollView>
+
+
+

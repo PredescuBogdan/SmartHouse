@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "467670718711",
+    "firebase_url": "https://smarthouse-39556.firebaseio.com",
+    "project_id": "smarthouse-39556",
+    "storage_bucket": "smarthouse-39556.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467670718711:android:f79aca51c2cd0c22",
+        "android_client_info": {
+          "package_name": "app.smarthouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467670718711-p6h935f1q62b85vciv7umd8qg72mnf2m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCujNaeIO_42h9iires4vQ472mPV5iWS6s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,115 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_7"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        >
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="30dp">
+
+
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_header_garage"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_header_garage"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/gradient_7"
+                    android:scaleType="centerCrop" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Garage Control"
+                    android:textSize="26sp"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="50dp"/>
+
+                <ImageView
+                    android:id="@+id/thumbnail_header_garage_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_car"
+                    android:tint="@color/white">
+
+                </ImageView>
+
+
+            </android.support.v7.widget.CardView>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:padding="5dp"
+            >
+            <android.support.v7.widget.CardView
+                xmlns:cardView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_light"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+
+                >
+
+                <ImageView
+                    android:id="@+id/thumbnail_light_consumption"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="@drawable/gradient_7"
+                    android:scaleType="centerCrop" />
+
+
+
+                <ToggleButton
+                    android:id="@+id/toggleGarage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/textViewGarage"
+                    android:text="Closed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_gravity="bottom|center">
+
+                </TextView>
+            </android.support.v7.widget.CardView>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
